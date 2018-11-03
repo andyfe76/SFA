@@ -1,0 +1,474 @@
+VERSION 5.00
+Begin VB.Form clienti_add 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Adauga client"
+   ClientHeight    =   3945
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   3945
+   ScaleWidth      =   3480
+   Visible         =   0   'False
+   Begin VBCE.CommandButton binapoi 
+      Height          =   375
+      Left            =   2640
+      TabIndex        =   13
+      Top             =   1920
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   16744576
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+   Begin VBCE.CommandButton badd 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   12
+      Top             =   1920
+      Width           =   855
+      _cx             =   1508
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Salveaza"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.TextBox adresa 
+      Height          =   375
+      Left            =   840
+      TabIndex        =   11
+      Top             =   1440
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   661
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label6 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   10
+      Top             =   1440
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Adresa"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox cont 
+      Height          =   375
+      Left            =   840
+      TabIndex        =   9
+      Top             =   1080
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   661
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label5 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   8
+      Top             =   1080
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Cont"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox banca 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   7
+      Top             =   840
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label4 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   6
+      Top             =   840
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Banca"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox cui 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   5
+      Top             =   600
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label3 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   4
+      Top             =   600
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "CUI"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox reg 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   3
+      Top             =   360
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label2 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   2
+      Top             =   360
+      Width           =   735
+      _cx             =   1296
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Nr. Reg."
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox nume 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   1
+      Top             =   120
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label1 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   0
+      Top             =   120
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Nume"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+End
+Attribute VB_Name = "clienti_add"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+
+
+Private Sub badd_Click()
+Dim conn
+Dim rs
+Dim sql As String
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+rs.Open "SELECT * FROM ids", conn, 2, 2
+If auth = 1 Then id = rs.Fields("clienti")
+If auth = 2 Then id = rs.Fields("clienti2")
+id = id + 1
+rs.Update "clienti", id
+rs.Close
+
+If auth = 1 Then sql = "INSERT INTO clienti (id,nume,reg,cui,banca,cont,adresa) VALUES ("
+If auth = 2 Then sql = "INSERT INTO clienti2 (id,nume,reg,cui,banca,cont,adresa) VALUES ("
+sql = sql + CStr(id) + ","
+sql = sql + "'" + nume.Text + "','"
+sql = sql + reg.Text + "','"
+sql = sql + cui.Text + "','"
+sql = sql + banca.Text + "','"
+sql = sql + cont.Text + "','"
+sql = sql + adresa.Text + "')"
+conn.Execute sql
+rs.Open "SELECT * FROM produse", conn
+If rs.EOF = False Then
+Do
+ conn.Execute "INSERT INTO preturi (client,produs,pret) VALUES (" + CStr(id) + "," + CStr(rs.Fields("id")) + "," + CStr(rs.Fields("pret")) + ")"
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+conn.Close
+conn.Open
+Set rs = Nothing
+Set conn = Nothing
+clienti.Visible = True
+clienti_add.Visible = False
+End Sub
+
+Private Sub binapoi_Click()
+clienti.Visible = True
+clienti_add.Visible = False
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+ nume.Text = ""
+ reg.Text = ""
+ cui.Text = ""
+ banca.Text = ""
+ cont.Text = ""
+ adresa.Text = ""
+mdiKeyboard.Show
+End Sub
+
+

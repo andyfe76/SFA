@@ -1,0 +1,522 @@
+VERSION 5.00
+Object = "{532C2BF5-6B55-11D1-9AA5-00C04FAD5AEC}#1.0#0"; "MSCEGRID.DLL"
+Begin VB.Form raport 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Raport"
+   ClientHeight    =   4800
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4800
+   ScaleWidth      =   3480
+   Begin GRIDLibCtl.GridCtrl grid 
+      Height          =   2655
+      Left            =   120
+      TabIndex        =   3
+      Top             =   600
+      Width           =   3255
+      _cx             =   5741
+      _cy             =   4683
+      BackColor       =   16777215
+      BackColorBkg    =   8421504
+      BackColorSel    =   6956042
+      Cols            =   2
+      FillStyle       =   0
+      FocusRect       =   1
+      ForeColor       =   0
+      ForeColorSel    =   16777215
+      GridColor       =   12632256
+      GridLines       =   1
+      GridLineWidth   =   1
+      HighLight       =   1
+      Redraw          =   -1  'True
+      RowHeightMin    =   0
+      Rows            =   0
+      ScrollBars      =   2
+      ScrollTrack     =   0   'False
+      SelectionMode   =   0
+      TextStyle       =   0
+      WordWrap        =   0   'False
+      Enabled         =   -1  'True
+   End
+   Begin VBCE.TextBox incrol 
+      Height          =   255
+      Left            =   1920
+      TabIndex        =   10
+      Top             =   3480
+      Width           =   1455
+      _cx             =   2566
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.TextBox vanzrol 
+      Height          =   255
+      Left            =   1920
+      TabIndex        =   9
+      Top             =   3240
+      Width           =   1455
+      _cx             =   2566
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.CommandButton Command1 
+      Height          =   375
+      Left            =   2520
+      TabIndex        =   8
+      Top             =   3720
+      Width           =   855
+      _cx             =   1508
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.TextBox inc 
+      Height          =   255
+      Left            =   1920
+      TabIndex        =   7
+      Top             =   3480
+      Width           =   1455
+      _cx             =   2566
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label2 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   6
+      Top             =   3480
+      Width           =   1695
+      _cx             =   2990
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Total incasare"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox vanz 
+      Height          =   255
+      Left            =   1920
+      TabIndex        =   5
+      Top             =   3240
+      Width           =   1455
+      _cx             =   2566
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label1 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   4
+      Top             =   3240
+      Width           =   1575
+      _cx             =   2778
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Total vanzare"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.CommandButton badd 
+      Height          =   375
+      Left            =   2640
+      TabIndex        =   2
+      Top             =   120
+      Width           =   855
+      _cx             =   1508
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Afiseaza"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.TextBox data 
+      Height          =   255
+      Left            =   1080
+      TabIndex        =   1
+      Top             =   180
+      Width           =   1455
+      _cx             =   2566
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label5 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   0
+      Top             =   180
+      Width           =   855
+      _cx             =   1508
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Data"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+End
+Attribute VB_Name = "raport"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub badd_Click()
+Dim rs
+Dim rs2
+Dim rs3
+Dim conn
+Dim buc(1000) As Integer
+Dim vanzare As Single
+Dim incasare As Single
+Dim a As Integer
+Dim tmp As Integer
+Dim cant As Integer
+Dim modi As Boolean
+
+grid.Rows = 0
+grid.Cols = 2
+grid.Clear
+grid.ColWidth(0) = 900
+grid.ColWidth(1) = 1200
+grid.AddItem "Produs" & Chr(9) & "Buc"
+grid.Row = grid.Rows - 1
+For a = 0 To 1
+ grid.Col = a
+ grid.CellFontBold = True
+Next
+
+incasare = 0
+vanzare = 0
+
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+Set rs2 = CreateObject("ADOCE.Recordset.3.0")
+Set rs3 = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+If auth = 1 Then rs.Open "SELECT * FROM comenzi WHERE data='" + data.Text + "'", conn
+If auth = 2 Then rs.Open "SELECT * FROM comenzi2 WHERE data='" + data.Text + "'", conn
+If rs.EOF = False Then
+Do
+ If auth = 1 Then rs2.Open "SELECT * FROM listacomenzi WHERE id=" + CStr(rs.Fields("lista")), conn
+ If auth = 2 Then rs2.Open "SELECT * FROM listacomenzi2 WHERE id=" + CStr(rs.Fields("lista")), conn
+ If rs2.EOF = False Then
+ Do
+  tmp = rs2.Fields("produs")
+  modi = False
+  For a = 1 To grid.Rows
+  If grid.RowData(a) = tmp Then
+   grid.Col = 1
+   grid.Row = a
+   cant = CInt(grid.Text)
+   cant = cant + rs2.Fields("cantitate")
+   grid.Text = CStr(cant)
+   modi = True
+   Exit For
+  End If
+  Next
+  If modi = False Then
+   rs3.Open "SELECT * FROM produse WHERE id=" + CStr(rs2.Fields("produs")), conn
+   grid.AddItem rs3.Fields("nume") + Chr(9) + CStr(rs2.Fields("cantitate"))
+   grid.RowData(grid.Rows - 1) = rs2.Fields("produs")
+   rs3.Close
+  End If
+  vanzare = vanzare + rs2.Fields("cantitate") * rs2.Fields("pretunitar")
+  rs2.MoveNext
+ Loop Until rs2.EOF
+ End If
+ rs2.Close
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+
+If auth = 1 Then rs.Open "SELECT * FROM plati WHERE data='" + data.Text + "'", conn
+If auth = 2 Then rs.Open "SELECT * FROM plati2 WHERE data='" + data.Text + "'", conn
+If rs.EOF = False Then
+Do
+ incasare = incasare + rs.Fields("suma")
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+
+vanz.Text = CStr(vanzare)
+vanzrol.Text = num2rol(vanz.Text)
+inc.Text = CStr(incasare)
+incrol.Text = num2rol(inc.Text)
+
+
+Set rs = Nothing
+Set rs2 = Nothing
+Set rs3 = Nothing
+conn.Close
+Set conn = Nothing
+End Sub
+
+Private Sub Command1_Click()
+ main.Show
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+
+Dim rs
+Dim rs2
+Dim rs3
+Dim conn
+Dim buc(1000) As Integer
+Dim vanzare As Single
+Dim incasare As Single
+Dim a As Integer
+Dim tmp As Integer
+Dim cant As Integer
+Dim modi As Boolean
+
+grid.Rows = 0
+grid.Cols = 2
+grid.Clear
+grid.ColWidth(0) = 900
+grid.ColWidth(1) = 1200
+grid.AddItem "Produs" & Chr(9) & "Buc"
+grid.Row = grid.Rows - 1
+For a = 0 To 1
+ grid.Col = a
+ grid.CellFontBold = True
+Next
+
+incasare = 0
+vanzare = 0
+
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+Set rs2 = CreateObject("ADOCE.Recordset.3.0")
+Set rs3 = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+If auth = 1 Then rs.Open "SELECT * FROM comenzi WHERE data='" + data.Text + "'", conn
+If auth = 2 Then rs.Open "SELECT * FROM comenzi2 WHERE data='" + data.Text + "'", conn
+If rs.EOF = False Then
+Do
+ If auth = 1 Then rs2.Open "SELECT * FROM listacomenzi WHERE id=" + CStr(rs.Fields("lista")), conn
+ If auth = 2 Then rs2.Open "SELECT * FROM listacomenzi2 WHERE id=" + CStr(rs.Fields("lista")), conn
+ If rs2.EOF = False Then
+ Do
+  tmp = rs2.Fields("produs")
+  modi = False
+  For a = 1 To grid.Rows
+  If grid.RowData(a) = tmp Then
+   grid.Col = 1
+   grid.Row = a
+   cant = CInt(grid.Text)
+   cant = cant + rs2.Fields("cantitate")
+   grid.Text = CStr(cant)
+   modi = True
+   Exit For
+  End If
+  Next
+  If modi = False Then
+   rs3.Open "SELECT * FROM produse WHERE id=" + CStr(rs2.Fields("produs")), conn
+   grid.AddItem rs3.Fields("nume") + Chr(9) + CStr(rs2.Fields("cantitate"))
+   grid.RowData(grid.Rows - 1) = rs2.Fields("produs")
+   rs3.Close
+  End If
+  vanzare = vanzare + rs2.Fields("cantitate") * rs2.Fields("pretunitar")
+  rs2.MoveNext
+ Loop Until rs2.EOF
+ End If
+ rs2.Close
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+
+If auth = 1 Then rs.Open "SELECT * FROM plati WHERE data='" + data.Text + "'", conn
+If auth = 2 Then rs.Open "SELECT * FROM plati2 WHERE data='" + data.Text + "'", conn
+If rs.EOF = False Then
+Do
+ incasare = incasare + rs.Fields("suma")
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+
+vanz.Text = CStr(vanzare)
+vanzrol.Text = num2rol(vanz.Text)
+inc.Text = CStr(incasare)
+incrol.Text = num2rol(inc.Text)
+
+Set rs = Nothing
+Set rs2 = Nothing
+Set rs3 = Nothing
+conn.Close
+Set conn = Nothing
+End Sub
+

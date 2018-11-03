@@ -1,0 +1,190 @@
+VERSION 5.00
+Begin VB.Form clienti 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Clienti"
+   ClientHeight    =   4800
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4800
+   ScaleWidth      =   3480
+   Visible         =   0   'False
+   Begin VBCE.CommandButton binapoi 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   4
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   16744576
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+   Begin VBCE.CommandButton bpreturi 
+      Height          =   375
+      Left            =   1800
+      TabIndex        =   3
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Preturi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bmodi 
+      Height          =   375
+      Left            =   960
+      TabIndex        =   2
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Modifica"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton badd 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Adauga"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.ListBox list 
+      Height          =   3135
+      Left            =   120
+      TabIndex        =   0
+      Top             =   120
+      Width           =   3375
+      List            =   "clienti.frx":0000
+      ItemData        =   "clienti.frx":0028
+      _cx             =   5953
+      _cy             =   5530
+      BackColor       =   -2147483643
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Columns         =   0
+      IntegralHeight  =   -1  'True
+      MultiSelect     =   0
+      Sorted          =   -1  'True
+   End
+End
+Attribute VB_Name = "clienti"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+
+Private Sub badd_Click()
+ clienti_add.Visible = True
+ clienti.Visible = False
+End Sub
+
+Private Sub binapoi_Click()
+main.Visible = True
+ clienti.Visible = False
+End Sub
+
+Private Sub bmodi_Click()
+If List.ListIndex <> -1 Then
+ clientid = List.ItemData(List.ListIndex)
+ clienti_modi.Visible = True
+ clienti.Visible = False
+End If
+End Sub
+
+Private Sub bpreturi_Click()
+If List.ListIndex <> -1 Then
+ clientid = List.ItemData(List.ListIndex)
+ preturi.grid.Visible = True
+ preturi.Visible = True
+ clienti.Visible = False
+End If
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+Dim conn
+Dim rs
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+If auth = 1 Then rs.Open "SELECT * FROM clienti", conn
+If auth = 2 Then rs.Open "SELECT * FROM clienti2", conn
+List.Clear
+If rs.EOF = False Then
+Do
+ id = rs.Fields("id")
+ List.AddItem CStr(rs.Fields("nume"))
+ List.ItemData(List.NewIndex) = id
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+End Sub
+

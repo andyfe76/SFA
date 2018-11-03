@@ -1,0 +1,160 @@
+VERSION 5.00
+Begin VB.Form login 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Login"
+   ClientHeight    =   4395
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4395
+   ScaleWidth      =   3480
+   Begin VBCE.Label Label2 
+      Height          =   375
+      Left            =   360
+      TabIndex        =   3
+      Top             =   2160
+      Visible         =   0   'False
+      Width           =   2655
+      _cx             =   4683
+      _cy             =   661
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Parola incorecta !"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   -1  'True
+   End
+   Begin VBCE.CommandButton Command1 
+      Height          =   375
+      Left            =   360
+      TabIndex        =   2
+      Top             =   1440
+      Width           =   1095
+      _cx             =   1931
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Autentificare"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.Label Label1 
+      Height          =   375
+      Left            =   360
+      TabIndex        =   1
+      Top             =   120
+      Width           =   1335
+      _cx             =   2355
+      _cy             =   661
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Parola:"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox pass 
+      Height          =   375
+      Left            =   360
+      TabIndex        =   0
+      Top             =   720
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   661
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   "*"
+      ScrollBars      =   0
+   End
+End
+Attribute VB_Name = "login"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub Command1_Click()
+Dim conn
+Dim rs
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+rs.Open "SELECT * FROM utilizator", conn
+If pass.Text = rs.Fields("pass1") Then auth = 1
+If pass.Text = rs.Fields("pass2") Then auth = 2
+rs.Close
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+If auth = 1 Or auth = 2 Then
+ main.Show
+ login.Hide
+Else
+ Label2.Visible = True
+End If
+End Sub
+
+
+Private Sub Form_Activate()
+formx (Me)
+mdiKeyboard.Show
+End Sub
+
+Private Sub Form_Load()
+ auth = 0
+End Sub

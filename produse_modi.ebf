@@ -1,0 +1,482 @@
+VERSION 5.00
+Begin VB.Form produse_modi 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Modificare produs"
+   ClientHeight    =   4800
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4800
+   ScaleWidth      =   3480
+   Begin VBCE.Label Label6 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   13
+      Top             =   1370
+      Width           =   375
+      _cx             =   661
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "RON"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox ron 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   12
+      Top             =   1365
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   0   'False
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   "0"
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.TextBox rol 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   11
+      Top             =   1125
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   0   'False
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   "0"
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label7 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   10
+      Top             =   1130
+      Width           =   375
+      _cx             =   661
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "ROL"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.ComboBox categorie 
+      Height          =   300
+      Left            =   840
+      TabIndex        =   9
+      Top             =   600
+      Width           =   2535
+      List            =   "produse_modi.frx":0000
+      ItemData        =   "produse_modi.frx":0028
+      _cx             =   4471
+      _cy             =   529
+      BackColor       =   -2147483643
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      IntegralHeight  =   -1  'True
+      Locked          =   0   'False
+      Sorted          =   0   'False
+      Style           =   0
+   End
+   Begin VBCE.Label Label1 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   8
+      Top             =   120
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Nume"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox nume 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   7
+      Top             =   120
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label2 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   6
+      Top             =   360
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Cod"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox cod 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   5
+      Top             =   360
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label3 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   4
+      Top             =   890
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Pret"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox pret 
+      Height          =   255
+      Left            =   840
+      TabIndex        =   3
+      Top             =   890
+      Width           =   2535
+      _cx             =   4471
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label4 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   2
+      Top             =   600
+      Width           =   735
+      _cx             =   1296
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Categorie"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.CommandButton badd 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
+      Top             =   1680
+      Width           =   855
+      _cx             =   1508
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Salveaza"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton binapoi 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   0
+      Top             =   1680
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   16744576
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+End
+Attribute VB_Name = "produse_modi"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub badd_Click()
+Dim conn
+Dim rs
+Dim sql As String
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+
+rs.Open "SELECT * FROM produse WHERE id=" + CStr(produsid), conn, 2, 2
+rs.Fields("nume") = nume.Text
+rs.Fields("cod") = cod.Text
+rs.Fields("pret") = CSng(pret.Text)
+rs.Fields("categorie") = categorie.ItemData(categorie.ListIndex)
+rs.Update
+conn.Close
+conn.Open
+Set rs = Nothing
+Set conn = Nothing
+produse.Visible = True
+produse_modi.Visible = False
+End Sub
+
+Private Sub binapoi_Click()
+ produse.grid.Visible = False
+ produse.Visible = True
+ produse_modi.Visible = False
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+nume.Text = ""
+cod.Text = ""
+pret.Text = ""
+
+Dim selid As Integer
+Dim conn
+Dim rs
+Dim rs2
+Dim sql As String
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+Set rs2 = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+rs.Open "SELECT * FROM produse WHERE id=" + CStr(produsid), conn
+nume.Text = rs.Fields("nume")
+cod.Text = rs.Fields("cod")
+pret.Text = CStr(rs.Fields("pret"))
+categorie.Clear
+categorie.Text = ""
+rs2.Open "SELECT * FROM categorii", conn
+Do
+ categorie.AddItem rs2.Fields("nume")
+ categorie.ItemData(categorie.NewIndex) = rs2.Fields("id")
+ If rs.Fields("categorie") = rs2.Fields("id") Then selid = categorie.NewIndex
+ rs2.MoveNext
+Loop Until rs2.EOF
+rs2.Close
+categorie.ListIndex = selid
+rs.Close
+Set rs = Nothing
+Set conn = Nothing
+mdiKeyboard.Show
+End Sub
+
+
+Private Sub pret_Change()
+rol.Text = num2rol(pret.Text)
+ ron.Text = num2ron(pret.Text)
+End Sub

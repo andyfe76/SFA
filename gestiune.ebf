@@ -1,0 +1,135 @@
+VERSION 5.00
+Begin VB.Form gestiune 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Gestiune"
+   ClientHeight    =   4800
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4800
+   ScaleWidth      =   3480
+   Visible         =   0   'False
+   Begin VBCE.CommandButton binapoi 
+      Height          =   495
+      Left            =   600
+      TabIndex        =   3
+      Top             =   3720
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   873
+      BackColor       =   16744576
+      Caption         =   "INAPOI"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+   Begin VBCE.CommandButton bincarcare 
+      Height          =   495
+      Left            =   600
+      TabIndex        =   2
+      Top             =   1320
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   873
+      BackColor       =   12632256
+      Caption         =   "INCARCARE"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bproduse 
+      Height          =   495
+      Left            =   600
+      TabIndex        =   1
+      Top             =   720
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   873
+      BackColor       =   12632256
+      Caption         =   "PRODUSE"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bcategorii 
+      Height          =   495
+      Left            =   600
+      TabIndex        =   0
+      Top             =   120
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   873
+      BackColor       =   12632256
+      Caption         =   "CATEGORII"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+End
+Attribute VB_Name = "gestiune"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub bcategorii_Click()
+ categorii.Visible = True
+ gestiune.Visible = False
+End Sub
+
+Private Sub binapoi_Click()
+ main.Visible = True
+ gestiune.Visible = False
+End Sub
+
+Private Sub bincarcare_Click()
+ 'incarcare.grid.Visible = False
+ incarcare.Visible = True
+ gestiune.Visible = False
+End Sub
+
+Private Sub bproduse_Click()
+ 'produse.grid.Visible = False
+ produse.Visible = True
+ gestiune.Visible = False
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+End Sub
+

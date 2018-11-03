@@ -1,0 +1,20 @@
+VERSION 5.00
+Begin VB.Form Form2 
+   Appearance      =   0  'Flat
+   BackColor       =   &H80000005&
+   Caption         =   "Form2"
+   ClientHeight    =   4395
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4395
+   ScaleWidth      =   3480
+End
+Attribute VB_Name = "Form2"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+

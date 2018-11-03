@@ -1,0 +1,177 @@
+VERSION 5.00
+Begin VB.Form comanda_clienti 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Comanda client"
+   ClientHeight    =   4800
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4800
+   ScaleWidth      =   3480
+   Begin VBCE.CommandButton bcomanda 
+      Height          =   375
+      Left            =   960
+      TabIndex        =   3
+      Top             =   3960
+      Width           =   855
+      _cx             =   1508
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Comanda"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.ListBox list 
+      Height          =   3825
+      Left            =   120
+      TabIndex        =   2
+      Top             =   120
+      Width           =   3375
+      List            =   "comanda_clienti.frx":0000
+      ItemData        =   "comanda_clienti.frx":0028
+      _cx             =   5953
+      _cy             =   6747
+      BackColor       =   -2147483643
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Columns         =   0
+      IntegralHeight  =   -1  'True
+      MultiSelect     =   0
+      Sorted          =   -1  'True
+   End
+   Begin VBCE.CommandButton bsold 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Sold"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton binapoi 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   0
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   16744576
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+End
+Attribute VB_Name = "comanda_clienti"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub bcomanda_Click()
+If List.ListIndex <> -1 Then
+ clientid = List.ItemData(List.ListIndex)
+ comanda_comanda.sender.Caption = "clienti"
+ Dim a As Integer
+ comanda_comanda.grid.Rows = 0
+ comanda_comanda.grid.Cols = 4
+ comanda_comanda.grid.Clear
+ comanda_comanda.grid.ColWidth(0) = 900
+ comanda_comanda.grid.ColWidth(1) = 800
+ comanda_comanda.grid.ColWidth(2) = 500
+ comanda_comanda.grid.ColWidth(3) = 1000
+ comanda_comanda.grid.AddItem "Categorie" & Chr(9) & "Produs" & Chr(9) & "Buc" & Chr(9) & "Pret"
+ comanda_comanda.grid.Row = comanda_comanda.grid.Rows - 1
+ For a = 0 To 3
+  comanda_comanda.grid.Col = a
+  comanda_comanda.grid.CellFontBold = True
+ Next
+ comanda_comanda.total.Caption = ""
+ comanda_comanda.Visible = True
+ comanda_sold.Visible = False
+End If
+End Sub
+
+Private Sub binapoi_Click()
+ main.Visible = True
+ comanda_clienti.Visible = False
+End Sub
+
+Private Sub bsold_Click()
+ If List.ListIndex <> -1 Then
+  clientid = List.ItemData(List.ListIndex)
+  comanda_sold.Visible = True
+  comanda_clienti.Visible = False
+ End If
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+Dim conn
+Dim rs
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+If auth = 1 Then rs.Open "SELECT * FROM clienti", conn
+If auth = 2 Then rs.Open "SELECT * FROM clienti2", conn
+List.Clear
+If rs.EOF = False Then
+Do
+ id = rs.Fields("id")
+ List.AddItem CStr(rs.Fields("nume"))
+ List.ItemData(List.NewIndex) = id
+ rs.MoveNext
+Loop Until rs.EOF
+End If
+rs.Close
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+End Sub
+
+

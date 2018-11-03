@@ -1,0 +1,570 @@
+VERSION 5.00
+Object = "{532C2BF5-6B55-11D1-9AA5-00C04FAD5AEC}#1.0#0"; "MSCEGRID.DLL"
+Begin VB.Form comanda_comanda 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Comanda produse"
+   ClientHeight    =   4800
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4800
+   ScaleWidth      =   3480
+   Begin GRIDLibCtl.GridCtrl grid 
+      Height          =   3135
+      Left            =   120
+      TabIndex        =   0
+      Top             =   120
+      Width           =   3255
+      _cx             =   5741
+      _cy             =   5530
+      BackColor       =   16777215
+      BackColorBkg    =   8421504
+      BackColorSel    =   6956042
+      Cols            =   2
+      FillStyle       =   0
+      FocusRect       =   1
+      ForeColor       =   0
+      ForeColorSel    =   16777215
+      GridColor       =   12632256
+      GridLines       =   1
+      GridLineWidth   =   1
+      HighLight       =   1
+      Redraw          =   -1  'True
+      RowHeightMin    =   0
+      Rows            =   0
+      ScrollBars      =   2
+      ScrollTrack     =   0   'False
+      SelectionMode   =   0
+      TextStyle       =   0
+      WordWrap        =   0   'False
+      Enabled         =   -1  'True
+   End
+   Begin VBCE.Label rol 
+      Height          =   240
+      Left            =   1920
+      TabIndex        =   12
+      Top             =   3240
+      Width           =   1455
+      _cx             =   2566
+      _cy             =   423
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "0"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.CommandButton bminus2 
+      Height          =   375
+      Left            =   1875
+      TabIndex        =   11
+      Top             =   3480
+      Width           =   525
+      _cx             =   926
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "-10"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bplus2 
+      Height          =   375
+      Left            =   3120
+      TabIndex        =   10
+      Top             =   3480
+      Width           =   450
+      _cx             =   794
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "+10"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.Label total 
+      Height          =   240
+      Left            =   2400
+      TabIndex        =   9
+      Top             =   3240
+      Width           =   975
+      _cx             =   1720
+      _cy             =   423
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "0"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.Label Label1 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   8
+      Top             =   3240
+      Width           =   1215
+      _cx             =   2143
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Total (ROL)"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.CommandButton bproforma 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   7
+      Top             =   3960
+      Width           =   975
+      _cx             =   1720
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Proforma"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bminus 
+      Height          =   375
+      Left            =   2400
+      TabIndex        =   6
+      Top             =   3480
+      Width           =   375
+      _cx             =   661
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "-1"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bplus 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   5
+      Top             =   3480
+      Width           =   375
+      _cx             =   661
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "+1"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.CommandButton bsterge 
+      Height          =   375
+      Left            =   960
+      TabIndex        =   4
+      Top             =   3480
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Sterge"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.Label sender 
+      Height          =   255
+      Left            =   0
+      TabIndex        =   3
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   495
+      _cx             =   873
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   -2147483643
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Label2"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.CommandButton binapoi 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   2
+      Top             =   3960
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   16744576
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+   Begin VBCE.CommandButton badd 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
+      Top             =   3480
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Adauga"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+End
+Attribute VB_Name = "comanda_comanda"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+
+
+Private Sub badd_Click()
+ comanda_comanda_add.categorie.Clear
+ comanda_comanda_add.produs.Clear
+ comanda_comanda_add.Visible = True
+ comanda_comanda.Visible = False
+End Sub
+
+Private Sub binapoi_Click()
+ If sender.Caption = "sold" Then
+  comanda_sold.Visible = True
+  comanda_comanda.Visible = False
+ End If
+ If sender.Caption = "plata" Then
+  comanda_plata.Visible = True
+  comanda_comanda.Visible = False
+ End If
+ If sender.Caption = "clienti" Then
+  comanda_clienti.Visible = True
+  comanda_comanda.Visible = False
+ End If
+ 
+End Sub
+
+Private Sub bminus_Click()
+If grid.Row > 0 Then
+Dim buc As Integer
+Dim pret As Single
+grid.Col = 2
+buc = CInt(grid.Text)
+If buc > 0 Then buc = buc - 1
+grid.Text = CStr(buc)
+
+Dim conn
+Dim rs
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+
+rs.Open "SELECT * FROM preturi WHERE client=" + CStr(clientid) + " AND produs=" + CStr(grid.RowData(grid.Row)), conn
+pret = rs.Fields("pret") * buc
+rs.Close
+grid.Col = 3
+
+grid.Text = num2rol(CStr(pret))
+
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+calculate
+End If
+End Sub
+
+Private Sub bminus2_Click()
+If grid.Row > 0 Then
+Dim buc As Integer
+Dim pret As Single
+grid.Col = 2
+buc = CInt(grid.Text)
+If buc > 10 Then buc = buc - 10
+grid.Text = CStr(buc)
+
+Dim conn
+Dim rs
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+
+rs.Open "SELECT * FROM preturi WHERE client=" + CStr(clientid) + " AND produs=" + CStr(grid.RowData(grid.Row)), conn
+pret = rs.Fields("pret") * buc
+rs.Close
+grid.Col = 3
+
+grid.Text = num2rol(CStr(pret))
+
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+calculate
+End If
+End Sub
+
+Private Sub bplus_Click()
+If grid.Row > 0 Then
+Dim buc As Integer
+Dim pret As Single
+grid.Col = 2
+buc = CInt(grid.Text)
+buc = buc + 1
+grid.Text = CStr(buc)
+
+Dim conn
+Dim rs
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+
+rs.Open "SELECT * FROM preturi WHERE client=" + CStr(clientid) + " AND produs=" + CStr(grid.RowData(grid.Row)), conn
+pret = rs.Fields("pret") * buc
+rs.Close
+grid.Col = 3
+
+grid.Text = num2rol(CStr(pret))
+
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+calculate
+End If
+End Sub
+
+Private Sub bplus2_Click()
+If grid.Row > 0 Then
+Dim buc As Integer
+Dim pret As Single
+grid.Col = 2
+buc = CInt(grid.Text)
+buc = buc + 10
+grid.Text = CStr(buc)
+
+Dim conn
+Dim rs
+Dim id As Integer
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+
+rs.Open "SELECT * FROM preturi WHERE client=" + CStr(clientid) + " AND produs=" + CStr(grid.RowData(grid.Row)), conn
+pret = rs.Fields("pret") * buc
+rs.Close
+grid.Col = 3
+
+grid.Text = num2rol(CStr(pret))
+
+
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+calculate
+End If
+End Sub
+
+Private Sub bproforma_Click()
+Dim a As Integer
+Dim conn
+Dim rs
+Dim txt As String
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+If auth = 1 Then rs.Open "SELECT * FROM clienti WHERE id=" + CStr(clientid), conn
+If auth = 2 Then rs.Open "SELECT * FROM clienti2 WHERE id=" + CStr(clientid), conn
+comanda_proforma.client.Text = rs.Fields("nume")
+rs.Close
+
+comanda_proforma.total.Text = total.Caption
+comanda_proforma.totalrol.Text = num2rol(total.Caption)
+comanda_proforma.tva.Text = CStr(Round(CDbl(total.Caption) * 0.19))
+comanda_proforma.tvarol.Text = num2rol(CStr(Round(CDbl(total.Caption) * 0.19)))
+comanda_proforma.totaltva.Text = CDbl(Round(CDbl(total.Caption) * 1.19))
+comanda_proforma.totaltvarol.Text = num2rol(Round(CDbl(CDbl(total.Caption) * 1.19)))
+
+comanda_proforma.grid.Rows = 0
+comanda_proforma.grid.Cols = 3
+comanda_proforma.grid.Clear
+comanda_proforma.grid.ColWidth(0) = 1500
+comanda_proforma.grid.ColWidth(1) = 500
+comanda_proforma.grid.ColWidth(2) = 1200
+comanda_proforma.grid.AddItem "Produs" & Chr(9) & "Buc" & Chr(9) & "Pret"
+comanda_proforma.grid.Row = comanda_proforma.grid.Rows - 1
+For a = 0 To 2
+ comanda_proforma.grid.Col = a
+ comanda_proforma.grid.CellFontBold = True
+Next
+
+For a = 1 To grid.Rows - 1
+ grid.Row = a
+ txt = ""
+ grid.Col = 1
+ txt = txt + grid.Text + Chr(9)
+ grid.Col = 2
+ txt = txt + grid.Text + Chr(9)
+ grid.Col = 3
+ txt = txt + grid.Text
+ 
+ comanda_proforma.grid.AddItem txt
+ comanda_proforma.grid.RowData(comanda_proforma.grid.Rows - 1) = grid.RowData(grid.Row)
+ 
+Next
+
+conn.Close
+Set rs = Nothing
+Set conn = Nothing
+comanda_proforma.Visible = True
+End Sub
+
+Private Sub bsterge_Click()
+If grid.Row > 0 Then
+ grid.RemoveItem (grid.Row)
+ calculate
+End If
+End Sub
+
+Private Sub Form_Activate()
+formx (Me)
+End Sub
+
+Private Sub calculate()
+Dim a As Integer
+Dim tot As Double
+tot = 0
+For a = 1 To grid.Rows - 1
+ grid.Row = a
+ grid.Col = 3
+ tot = tot + rol2num(grid.Text)
+Next
+total.Caption = CStr(tot)
+rol.Caption = num2rol(total.Caption)
+End Sub
+
+

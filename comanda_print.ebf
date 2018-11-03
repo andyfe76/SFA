@@ -1,0 +1,462 @@
+VERSION 5.00
+Begin VB.Form comanda_print 
+   Appearance      =   0  'Flat
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "SFA - Imprimare"
+   ClientHeight    =   4395
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   3480
+   ForeColor       =   &H80000008&
+   ScaleHeight     =   4395
+   ScaleWidth      =   3480
+   Begin VBCE.Label prn 
+      Height          =   255
+      Left            =   960
+      TabIndex        =   8
+      Top             =   1200
+      Visible         =   0   'False
+      Width           =   1815
+      _cx             =   3201
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Se printeaza..."
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.CommandButton binapoi 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   7
+      Top             =   1680
+      Width           =   735
+      _cx             =   1296
+      _cy             =   661
+      BackColor       =   16744576
+      Caption         =   "Inapoi"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1
+   End
+   Begin VBCE.CommandButton bprint 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   6
+      Top             =   1680
+      Width           =   975
+      _cx             =   1720
+      _cy             =   661
+      BackColor       =   12632256
+      Caption         =   "Imprimare"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   0
+   End
+   Begin VBCE.Label Label1 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   5
+      Top             =   120
+      Width           =   615
+      _cx             =   1085
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Client"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox client 
+      Height          =   255
+      Left            =   1080
+      TabIndex        =   4
+      Top             =   120
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label5 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   3
+      Top             =   600
+      Width           =   855
+      _cx             =   1508
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Data"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox data 
+      Height          =   255
+      Left            =   1080
+      TabIndex        =   2
+      Top             =   600
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+   Begin VBCE.Label Label3 
+      Height          =   255
+      Left            =   120
+      TabIndex        =   1
+      Top             =   360
+      Width           =   855
+      _cx             =   1508
+      _cy             =   450
+      AutoSize        =   0   'False
+      BackColor       =   14737632
+      BackStyle       =   1
+      BorderStyle     =   0
+      Caption         =   "Factura"
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Alignment       =   0
+      UseMnemonic     =   -1  'True
+      WordWrap        =   0   'False
+   End
+   Begin VBCE.TextBox factura 
+      Height          =   255
+      Left            =   1080
+      TabIndex        =   0
+      Top             =   360
+      Width           =   2295
+      _cx             =   4048
+      _cy             =   450
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Enabled         =   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   -2147483640
+      Text            =   ""
+      Alignment       =   0
+      HideSelection   =   -1  'True
+      Locked          =   0   'False
+      MaxLength       =   0
+      MultiLine       =   0   'False
+      PasswordChar    =   ""
+      ScrollBars      =   0
+   End
+End
+Attribute VB_Name = "comanda_print"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub binapoi_Click()
+ comanda_proforma.Show
+End Sub
+
+Private Sub bprint_Click()
+prn.Visible = True
+Dim conn
+Dim rs
+Dim rs2
+Dim a As Integer
+Dim comandaid As Integer
+Dim listacomandaid As Integer
+Dim sql As String
+Dim stoc As Integer
+Dim rep As Integer
+
+Set conn = CreateObject("ADOCE.Connection.3.0")
+Set rs = CreateObject("ADOCE.Recordset.3.0")
+Set rs2 = CreateObject("ADOCE.Recordset.3.0")
+conn.ConnectionString = "data source = My Documents\SFA.cdb"
+conn.Open
+
+
+rs.Open "SELECT * FROM ids", conn, 2, 2
+If auth = 1 Then comandaid = rs.Fields("comenzi")
+If auth = 2 Then comandaid = rs.Fields("comenzi2")
+comandaid = comandaid + 1
+If auth = 1 Then rs.Update "comenzi", comandaid
+If auth = 2 Then rs.Update "comenzi2", comandaid
+rs.Close
+
+rs.Open "SELECT * FROM ids", conn, 2, 2
+If auth = 1 Then listacomandaid = rs.Fields("listacomenzi")
+If auth = 2 Then listacomandaid = rs.Fields("listacomenzi2")
+listacomandaid = listacomandaid + 1
+If auth = 1 Then rs.Update "listacomenzi", listacomandaid
+If auth = 2 Then rs.Update "listacomenzi2", listacomandaid
+rs.Close
+
+
+If auth = 1 Then rs.Open "SELECT * FROM comenzi", conn, 2, 2
+If auth = 2 Then rs.Open "SELECT * FROM comenzi2", conn, 2, 2
+rs.AddNew
+rs.Fields("id") = comandaid
+rs.Fields("client") = clientid
+rs.Fields("lista") = listacomandaid
+rs.Fields("data") = CDate(data.Text)
+rs.Fields("factura") = CDbl(factura.Text)
+rs.Update
+rs.Close
+
+
+If auth = 1 Then rs.Open "SELECT * FROM listacomenzi", conn, 2, 2
+If auth = 2 Then rs.Open "SELECT * FROM listacomenzi2", conn, 2, 2
+For a = 1 To comanda_comanda.grid.Rows - 1
+ comanda_comanda.grid.Row = a
+ rs.AddNew
+ rs.Fields("id") = listacomandaid
+ rs.Fields("produs") = comanda_comanda.grid.RowData(a)
+ comanda_comanda.grid.Col = 2
+ rs.Fields("cantitate") = CInt(comanda_comanda.grid.Text)
+ sql = "SELECT * FROM preturi WHERE client=" + CStr(clientid) + " AND produs=" + CStr(comanda_comanda.grid.RowData(a))
+ rs2.Open sql, conn
+ rs.Fields("pretunitar") = rs2.Fields("pret")
+ rs2.Close
+ rs.Update
+ 
+
+ If auth = 1 Then rs2.Open "SELECT * FROM stoc WHERE produs=" + CStr(comanda_comanda.grid.RowData(a)), conn, 2, 2
+ If auth = 2 Then rs2.Open "SELECT * FROM stoc2 WHERE produs=" + CStr(comanda_comanda.grid.RowData(a)), conn, 2, 2
+ stoc = rs2.Fields("cantitate")
+ stoc = stoc - CInt(comanda_comanda.grid.Text)
+ rs2.Fields("cantitate") = stoc
+ rs2.Update
+ rs2.Close
+ 
+Next
+rs.Close
+
+prn.Visible = True
+prn.Refresh
+
+If auth = 1 Then
+Dim ptop As Single
+Dim pleft As Single
+Dim crt As Integer
+Dim y As Single
+Dim pret As Double
+Dim buc As Double
+Dim r As Boolean
+Dim ptot, ptva As Single
+Dim PrinterCE1
+
+For rep = 1 To 3
+
+Set PrinterCE1 = CreateObject("PrEngineCE.PrinterCE")
+'r = PrinterCE1.PrDialogBox(2)
+'PrinterCE1.SelectPrinter
+PrinterCE1.ScaleMode = vbCentimeters
+PrinterCE1.PrOrientation = 1
+PrinterCE1.PrPaperSelection = 2
+PrinterCE1.PrTopMargin = 0
+PrinterCE1.PrLeftMargin = 0
+PrinterCE1.FontSize = 10
+PrinterCE1.SetupPrinter 22, 3, 5
+
+
+
+ptop = -0.7
+
+If auth = 1 Then rs.Open "SELECT * FROM clienti WHERE id=" + CStr(clientid), conn
+If auth = 2 Then rs.Open "SELECT * FROM clienti2 WHERE id=" + CStr(clientid), conn
+PrinterCE1.DrawText rs.Fields("nume"), 14.5, ptop + 2.4
+PrinterCE1.DrawText rs.Fields("reg"), 17.5, ptop + 3.1
+PrinterCE1.DrawText rs.Fields("cui"), 17, ptop + 3.7
+PrinterCE1.DrawText rs.Fields("adresa"), 15.5, ptop + 4.2
+PrinterCE1.FontSize = 8
+PrinterCE1.DrawText rs.Fields("cont"), 15.5, ptop + 5.3
+PrinterCE1.FontSize = 10
+PrinterCE1.DrawText rs.Fields("banca"), 15.5, ptop + 5.9
+rs.Close
+
+PrinterCE1.DrawText factura.Text, 9.5, ptop + 6
+PrinterCE1.DrawText data.Text, 11, ptop + 6.4
+PrinterCE1.DrawText "19", 3.5, ptop + 7.7
+
+crt = 1
+y = ptop + 10.5
+
+For a = 1 To comanda_comanda.grid.Rows - 1
+ PrinterCE1.DrawText CStr(crt), 1.3, y
+ 
+ comanda_comanda.grid.Row = a
+ comanda_comanda.grid.Col = 1
+ sql = comanda_comanda.grid.Text
+ PrinterCE1.DrawText sql, 2.3, y
+ PrinterCE1.DrawText "buc", 8.8, y
+ 
+ comanda_comanda.grid.Col = 2
+ sql = comanda_comanda.grid.Text
+ buc = CDbl(sql)
+ PrinterCE1.DrawText sql, 10, y
+ 
+ comanda_comanda.grid.Col = 3
+ pret = rol2num(comanda_comanda.grid.Text) / CSng(sql)
+ PrinterCE1.DrawText num2rol(CStr(pret)), 12, y
+ 
+ PrinterCE1.DrawText CStr(pret * buc), 14.7, y
+ ptot = ptot + pret * buc
+ PrinterCE1.DrawText num2rol(CStr(pret * buc * 0.19)), 17.8, y
+ ptva = ptva + pret * buc * 0.19
+ 
+ y = y + 0.5
+ crt = crt + 1
+Next
+
+PrinterCE1.DrawText num2rol(CStr(ptot)), 14.7, ptop + 24.5
+PrinterCE1.DrawText num2rol(CStr(ptva)), 17.8, ptop + 24.5
+PrinterCE1.DrawText num2rol(CStr(ptot + ptva)), 14.7, ptop + 27.5
+
+rs.Open "SELECT * FROM utilizator", conn
+ PrinterCE1.DrawText rs.Fields("nume") + " " + rs.Fields("prenume"), 4.5, ptop + 25.4
+ PrinterCE1.DrawText rs.Fields("biserie"), 5.3, ptop + 26.3
+ PrinterCE1.DrawText rs.Fields("binumar"), 6.7, ptop + 26.3
+ PrinterCE1.DrawText rs.Fields("bicirca"), 10.2, ptop + 26.3
+ PrinterCE1.DrawText rs.Fields("auto"), 5, ptop + 27.2
+ PrinterCE1.DrawText data.Text, 6, ptop + 28.1
+ sql = CStr(Hour(Now())) + ":" + CStr(Minute(Now()))
+ PrinterCE1.DrawText sql, 10.5, ptop + 28.1
+ PrinterCE1.DrawText "CNP:" + rs.Fields("cnp"), 4, ptop + 24
+rs.Close
+PrinterCE1.EndDoc
+
+Set PrinterCE1 = Nothing
+
+Next
+
+End If
+Set rs = Nothing
+Set rs2 = Nothing
+conn.Close
+Set conn = Nothing
+
+
+main.Show
+End Sub
+
+Private Sub Form_Activate()
+prn.Visible = False
+formx (Me)
+End Sub
+
+Private Sub Form_Paint()
+ mdiKeyboard.Show
+End Sub
